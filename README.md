@@ -1,0 +1,1 @@
+Repo contains exercises of part2.
