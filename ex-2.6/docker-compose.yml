@@ -1,0 +1,29 @@
+version: '3.5'  
+
+services:
+
+  frontend: 
+    image: frontend
+    environment:
+      - API_URL=http://localhost:1111
+    ports: 
+        - 2222:5000
+
+  backend: 
+    image: backend
+    environment:
+      - FRONT_URL=http://localhost:2222
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=example
+      - DB_HOST=db_backend
+    ports: 
+      - 1111:8000
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: example
+    container_name: db_backend
