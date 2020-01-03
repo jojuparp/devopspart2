@@ -5,19 +5,19 @@ services:
   frontend: 
     image: frontend
     environment:
-      - API_URL=http://localhost:1111
+      - API_URL=http://localhost:5000
     ports: 
-        - 2222:5000
+        - 5000:5000
 
   backend: 
     image: backend
     environment:
-      - FRONT_URL=http://localhost:2222
+      - FRONT_URL=http://localhost:8000
       - DB_USERNAME=postgres
       - DB_PASSWORD=example
       - DB_HOST=db_backend
     ports: 
-      - 1111:8000
+      - 8000:8000
     depends_on:
       - db
 
