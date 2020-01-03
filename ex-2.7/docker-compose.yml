@@ -18,7 +18,7 @@ services:
     environment:
       - FRONT_URL=http://localhost:3000
     volumes: 
-      - training:/src/model
+      - model:/src/model
     depends_on:
       - training
 
@@ -26,10 +26,9 @@ services:
     build: ./ml-kurkkumopo-training
     image: ml-kurkkumopo-training
     volumes: 
-      - model:/model
-      - /src/imgs:/imgs
+      - model:/src/model
+      - images:/src/imgs
 
 volumes:
   model:
-  training:
   images:
